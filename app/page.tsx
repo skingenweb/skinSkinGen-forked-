@@ -12,7 +12,7 @@ export default function UnderConstruction() {
   });
 
   useEffect(() => {
-    const targetDate = new Date("2025-01-30T00:00:00").getTime();
+    const targetDate = new Date("2025-02-15T00:00:00").getTime();
 
     const interval = setInterval(() => {
       const now = new Date().getTime();
