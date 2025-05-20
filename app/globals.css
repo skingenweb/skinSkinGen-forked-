@@ -18,10 +18,30 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+}
+
+
+@keyframes float-bubbles {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
+.bubbles-background {
+  background-image: url("https://res.cloudinary.com/dli9xljyz/image/upload/v1743389670/BURBUJAS_ghgqqg.png");
+  background-repeat: repeat;
+  background-size: cover;
+  animation: float-bubbles 40s linear infinite;
+  z-index: 0;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

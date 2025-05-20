@@ -1,88 +1,76 @@
 "use client";
-
-import Image from "next/image";
-import { useEffect, useState } from "react";
+import ProductLinesGrid from "@/components/home/productsLines";
+import CarouselHero from "@/components/home/carousel";
+import InfoCards from "@/components/home/infoCards";
+import InfiniteTextCarousel from "@/components/home/infinityKeyWords";
+import { useRef } from "react";
+import Hero from "@/components/home/hero";
+import { SlideData } from "@/lib/types";
 
 export default function UnderConstruction() {
-  const [timeLeft, setTimeLeft] = useState({
-    days: "00",
-    hours: "00",
-    minutes: "00",
-    seconds: "00",
-  });
+  const newLaunches = [
+    {
+      title: "dia de la madre",
+      src: "https://res.cloudinary.com/dli9xljyz/video/upload/v1746635080/promocio%CC%81n_mayo_pa%CC%81gina_web_1920x720_px_ih9s6b.mp4",
+    },
+  ];
 
-  useEffect(() => {
-    const targetDate = new Date("2025-02-15T00:00:00").getTime();
+  
+  const slides : SlideData[] = [
+    {
+      title: "MANIFICARE®",
+      description:
+        "Biorevitalización Inteligente para una Belleza Duradera.Tecnología de péptidos innovadora",
+      src: "https://res.cloudinary.com/dli9xljyz/video/upload/v1741645763/20250310_1704_Golden_Glow_Moment_storyboard_01jp11cdz1ft4sn4zhmqsxx0tm_qjs6ju.mp4",
+      type: "video",
+      ctaText: "Conoce Más",
+      ctaLink: "/manificare",
+      textColor: "white",
+      button: "primary",
+      logo:"/images/productosLogos/LOGOBMANIFICARE.svg"
+    },
+    {
+      title: "DERMAFILL®",
+      description:
+        "La nueva generación de ácido hialurónico de alta pureza.",
+      src: "https://res.cloudinary.com/dli9xljyz/video/upload/v1741645734/background-v4_1_gueaw1.mp4",
+      type: "video",
+      ctaText: "Conoce más",
+      ctaLink: "/dermafill",
+      textColor: "black",
+      button: "secondary",
+      logo:"/images/productosLogos/dermafill.svg"
+    },
+  ];
 
-    const interval = setInterval(() => {
-      const now = new Date().getTime();
-      const difference = targetDate - now;
-
-      if (difference <= 0) {
-        clearInterval(interval);
-        return;
-      }
-
-      const days = String(
-        Math.floor(difference / (1000 * 60 * 60 * 24))
-      ).padStart(2, "0");
-      const hours = String(
-        Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-      ).padStart(2, "0");
-      const minutes = String(
-        Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))
-      ).padStart(2, "0");
-      const seconds = String(
-        Math.floor((difference % (1000 * 60)) / 1000)
-      ).padStart(2, "0");
-
-      setTimeLeft({ days, hours, minutes, seconds });
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-gray-100 to-gray-200 text-center p-4">
-      <div className="bg-white p-8 rounded-lg shadow-lg max-w-md">
-        <div className="mb-6">
-          <Image
-            src="/logoSkin.svg"
-            alt="SkinGen Colombia"
-            width={200}
-            height={100}
-            className="mx-auto"
-          />
-        </div>
-        <h1 className="text-2xl font-bold text-red-700 mb-4">
-          ¡Estamos trabajando en algo increíble!
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Nuestra página web estará disponible muy pronto. ¡Mantente atento para
-          descubrir todo lo que tenemos preparado para ti!
-        </p>
-        <div className="flex justify-center gap-4 text-gray-800 text-lg font-semibold">
-          <div className="flex flex-col items-center">
-            <span className="text-2xl font-bold">{timeLeft.days}</span>
-            <span>Días</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <span className="text-2xl font-bold">{timeLeft.hours}</span>
-            <span>Horas</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <span className="text-2xl font-bold">{timeLeft.minutes}</span>
-            <span>Minutos</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <span className="text-2xl font-bold">{timeLeft.seconds}</span>
-            <span>Segundos</span>
+    <>
+      <div className="flex flex-col items-center w-full mx-auto">
+        {/* Sección Hero + Carrusel */}
+        <div className="w-full mb-12">
+          <div className="w-full mx-auto ">
+            <div className=" w-full">
+              <Hero slides={slides} autoPlay interval={15000} />
+            </div>
           </div>
         </div>
-        <footer className="mt-6 text-gray-500 text-sm">
-          &copy; 2024 SkinGen Colombia. Todos los derechos reservados.
-        </footer>
+
+        {/* Sección de Líneas de Producto */}
+        <div className="w-full max-w-[90%] md:max-w-[75%] mx-auto grid grid-cols-1 md:grid-cols-5 gap-4 mt-12 mb-24">
+          <div className="w-full col-span-5 mb-5">
+            <ProductLinesGrid />
+          </div>
+        </div>
+        <div ref={carouselRef} className="w-full  mx-auto mb-10">
+          <CarouselHero slides={newLaunches} autoPlay={true} interval={4000} />
+        </div>
+        <InfiniteTextCarousel />
+        <div className="w-full max-w-[90%] md:max-w-[75%] mx-auto ">
+          <InfoCards />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
