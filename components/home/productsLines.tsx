@@ -1,14 +1,16 @@
 import Image from "next/image";
 
 const productLines = [
-    { name: "Dermafill", icon: "/images/productosLogos/LOGODERMAFILL.svg", link: "/productos/dermafill" },
+    { name: "Skingenuity", icon: "/images/productosLogos/LOGOSKINGENU.svg" , link: "/skingenuity" },
     { name: "Manificare", icon: "/images/productosLogos/LOGOMANIFICARE.svg", link: "/manificare" },
+    { name: "Dermafill", icon: "/images/productosLogos/LOGODERMAFILL.svg", link: "/productos/dermafill" },
+    { name: "Hematomas", icon: "/images/productosLogos/LOGOHEMATIX.svg" , link: "/hematix" },
     { name: "Cicatrices", icon: "/images/productosLogos/LOGOSCARMD.svg" ,link: "/scarmd"},
     { name: "Pestañas", icon: "/images/productosLogos/LOGOXXTRALASH.svg" , link: "/xxtralash"},
-    { name: "Hematomas", icon: "/images/productosLogos/LOGOHEMATIX.svg" , link: "/hematix" },
-    { name: "Dermadol", icon: "/images/productosLogos/LOGODERMADOL.svg" , link: "/dermadol" },
     { name: "Xtaz", icon: "/images/productosLogos/LOGOX-TAZ.svg" , link: "/xtaz"},
-    { name: "Skingenuity", icon: "/images/productosLogos/LOGOSKINGENU.svg" , link: "/skingenuity" },
+    { name: "Dermadol", icon: "/images/productosLogos/LOGODERMADOL.svg" , link: "/dermadol" },
+
+    
 ];
 
 export default function ProductLinesGrid() {
