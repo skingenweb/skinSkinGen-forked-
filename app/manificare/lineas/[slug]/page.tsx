@@ -93,7 +93,7 @@ export default function ProductLinePage({
           alt="Header"
           width={100}
           height={1000}
-          className="w-full h-screen object-cover object-top"
+          className="w-full md:h-screen object-contain md:object-cover object-top"
         />
       </div>
 
@@ -107,7 +107,7 @@ export default function ProductLinePage({
 
       {/* Info principal */}
       <div className="w-100 flex justify-center gap-6 mt-6 items-center ">
-      <div className="flex justify-center">
+      <div className="flex flex-col md:flex-row justify-center px-4">
       <div className="space-y-4 mx-auto mt-8">
           <div className="text-sm md:text-lg space-y-1" style={{ color: selectedProduct.bannerColor }}>
             <p>
@@ -157,7 +157,7 @@ export default function ProductLinePage({
         <a
           href={selectedProduct.buyLink}
           target="_blank"
-          className={`px-6 py-3  w-[180px] text-white text-center  transition`}
+          className={`px-6 py-3 w-[180px] text-white text-center  transition`}
           style={{ backgroundColor: selectedProduct.bannerColor }}
         >
           Comprar

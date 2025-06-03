@@ -95,7 +95,7 @@ export default function ProductLinePage({
           alt="Header"
           width={100}
           height={1000}
-          className="w-full h-screen object-cover object-top"
+          className="w-full h-auto md:h-screen md:object-cover object-contain object-top"
         />
       </div>
 

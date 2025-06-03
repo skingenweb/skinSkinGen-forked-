@@ -109,7 +109,8 @@ export default function NavBarComponent(props: NavbarProps) {
       <NavbarMenu className="top-[calc(var(--navbar-height)_-_1px)] max-h-fit bg-default-200/50 pb-6 pt-6 shadow-medium backdrop-blur-md backdrop-saturate-150 dark:bg-default-100/50">
         {menuItems.map((item, index) => {
           const isContacto = item === "contacto";
-          const href = isContacto ? "https://wa.me/573185797100" : `/${item}`;
+          const link = item.toLocaleLowerCase()
+          const href = isContacto ? "https://wa.me/573185797100" : `/${link}`;
 
           return (
             <NavbarMenuItem key={`${item}-${index}`}>
