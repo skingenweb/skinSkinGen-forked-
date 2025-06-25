@@ -21,7 +21,7 @@ export default function SkingenuitySkinPage() {
       <div className="w-full bg-white relative mt-8">
         {/* Título morado */}
         <div className="absolute top-0 left-0 bg-[#041E46] h-[80px] w-full md:w-[40%] text-white text-lg md:text-2xl rounded-none md:rounded-r-lg flex items-center justify-center px-4">
-          SOLUCIÓN PARA LA REGENERACIÓN FACIAL
+          SOLUCIÓN PARA LA RESTAURACIÓN CAPILAR 
         </div>
 
         <div className="w-full flex flex-col md:flex-row justify-between items-end pt-24 md:pt-8">
